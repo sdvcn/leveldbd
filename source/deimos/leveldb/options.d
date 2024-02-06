@@ -10,7 +10,7 @@ import deimos.leveldb.cache;
 
 
 
-extern(C++,struct)
+
 extern(C++,`leveldb`):
 
 enum CompressionType{
@@ -19,6 +19,7 @@ enum CompressionType{
     kZlibCompression = 0x02,
 }
 
+extern(C++,struct)
 struct Options{
     bool create_if_missing;
     bool error_if_exists;
@@ -37,6 +38,7 @@ struct Options{
     FilterPolicy filter_policy;
 }
 
+extern(C++,struct)
 struct ReadOptions
 {
     bool verify_checksums;
@@ -44,6 +46,7 @@ struct ReadOptions
     Snapshot snapshot;
 }
 
+extern(C++,struct)
 struct WriteOptions
 {
     bool sync;

@@ -16,5 +16,6 @@
 	],
 	"lflags-windows-x86_64": [
 		"\"/LIBPATH:$PACKAGE_DIR\\libs\\win64\""
-	]
+	],
+	"buildOptions-windows": ["debugInfoC"]
 }

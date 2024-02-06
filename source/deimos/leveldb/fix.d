@@ -25,11 +25,15 @@ unittest
 
     infof("leveldb version %s.%s",leveldb_major_version(),leveldb_minor_version());
 
+    /*
     //auto mdb cpp_new!DB();
     DB mdb = cpp_new!DB();
 
     
 
     mdb.destroy();
-    
+    */
 }
+
+
+

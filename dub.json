@@ -1,0 +1,20 @@
+{
+	"authors": [
+		"sdv"
+	],
+	"copyright": "Copyright © 2024, sdv",
+	"description": "A minimal D application.",
+	"license": "proprietary",
+	"name": "leveldbd",
+	"libs": [
+		"leveldb",
+		"crc32c",
+		"snappy"
+	],
+	"lflags-windows-x86": [
+		"\"/LIBPATH:$PACKAGE_DIR\\libs\\win32\""
+	],
+	"lflags-windows-x86_64": [
+		"\"/LIBPATH:$PACKAGE_DIR\\libs\\win64\""
+	]
+}

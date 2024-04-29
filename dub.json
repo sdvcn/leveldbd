@@ -5,17 +5,50 @@
 	"copyright": "Copyright © 2024, sdv",
 	"description": "A minimal D application.",
 	"license": "proprietary",
-	"name": "leveldbd",
-	"libs": [
-		"leveldb",
-		"crc32c",
-		"snappy"
+	"name": "deimos-leveldb",
+	"dependencies": {
+		":static":"*"
+	},
+
+	"subPackages": [
+		{
+			"name": "static",
+			"libs-windows": [
+				"$PACKAGE_DIR/libs/win64/leveldb",
+				"$PACKAGE_DIR/libs/win64/crc32c",
+				"$PACKAGE_DIR/libs/win64/snappy"
+			],
+			"libs-posix": [
+				"leveldb",
+				"crc32c",
+				"snappy"
+			],
+			"targetType": "sourceLibrary",
+			"lflags-windows-x86": [
+				"\"/LIBPATH:$PACKAGE_DIR\\libs\\win32\""
+			],
+			"lflags-windows-x86_64": [
+				"\"/LIBPATH:$PACKAGE_DIR\\libs\\win64\""
+			]
+		},
+		{
+			"name": "shared",
+			"copyFiles-windows": [
+				"$PACKAGE_DIR/libs/win64/shared/leveldb.dll"
+			],
+			"libs-windows": [
+				"$PACKAGE_DIR/libs/win64/shared/leveldb"
+			],
+			"targetType": "sourceLibrary"
+
+		}
 	],
-	"lflags-windows-x86": [
-		"\"/LIBPATH:$PACKAGE_DIR\\libs\\win32\""
-	],
-	"lflags-windows-x86_64": [
-		"\"/LIBPATH:$PACKAGE_DIR\\libs\\win64\""
-	],
-	"buildOptions-windows": ["debugInfoC"]
+	"configurations": [
+		{
+			"name": "debug",
+			"buildOptions": [
+				"debugInfoC"
+			]
+		}
+	]
 }
